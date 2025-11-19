@@ -59,7 +59,9 @@ app.use("/api/payments", paymentsRoutes);
 app.use("/api/tools", toolsRoutes);
 app.use("/api/passport", passportRoutes);
 app.use("/api/police", policeRoutes);
-
+app.get("/", (req, res) => {
+  res.send("Backend is running");
+});
 // ✅ Error Handling
 app.use(notFound); // 404 handler
 app.use(errorHandler); // Global error handler

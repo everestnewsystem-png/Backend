@@ -28,6 +28,6 @@ const runHealthCheck = async () => {
 runHealthCheck();
 
 // Repeat every 2 minutes (120000 ms)
-setInterval(runHealthCheck, 12000);
+setInterval(runHealthCheck, 180000);
 
 console.log("⏱️ Health check cron started (every 16kms- minutes)");
