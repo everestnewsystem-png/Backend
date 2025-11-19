@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 // Validate essential environment variables
-const REQUIRED_KEYS = ["MONGO_URI", "JWT_SECRET", "CLIENT_URL"];
+const REQUIRED_KEYS = ["MONGO_URI", "JWT_SECRET", "CLIENT_URL", "ALLOWED_ORIGINS"];
 
 REQUIRED_KEYS.forEach((key) => {
   if (!process.env[key]) {

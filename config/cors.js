@@ -1,20 +1,26 @@
-const allowedOrigins = [
-  process.env.CLIENT_URL,        // Netlify frontend
-  "http://localhost:5173",       // Vite Dev mode
-  "http://localhost:3000"        // Optional fallback
-];
+import dotenv from "dotenv";
+dotenv.config();
+
+const allowedOrigins = process.env.ALLOWED_ORIGINS
+  ? process.env.ALLOWED_ORIGINS.split(",").map((url) => url.trim())
+  : [];
 
 const corsOptions = {
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps, Postman)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      console.log("❌ Blocked CORS origin:", origin);
+      console.warn(`🚫 CORS blocked origin: ${origin}`);
       callback(new Error("Not allowed by CORS"));
     }
   },
   credentials: true,
-  optionsSuccessStatus: 200
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  optionsSuccessStatus: 200, // for legacy browsers
 };
 
 export default corsOptions;
