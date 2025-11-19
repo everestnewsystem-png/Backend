@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const BACKEND_URL = process.env.BACKEND_URL || `http://localhost:${process.env.PORT || 5000}`;
+const BACKEND_URL = process.env.BACKEND_URL ;
 
 // Function that checks the backend health route every 2 minutes
 const runHealthCheck = async () => {
@@ -28,6 +28,6 @@ const runHealthCheck = async () => {
 runHealthCheck();
 
 // Repeat every 2 minutes (120000 ms)
-setInterval(runHealthCheck, 120000);
+setInterval(runHealthCheck, 12000);
 
-console.log("⏱️ Health check cron started (every 2 minutes)");
+console.log("⏱️ Health check cron started (every 16kms- minutes)");
