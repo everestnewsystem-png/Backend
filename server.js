@@ -21,6 +21,8 @@ import paymentsRoutes from "./routes/payments.routes.js";
 import toolsRoutes from "./routes/tools.routes.js";
 import passportRoutes from "./routes/passport.routes.js";
 import policeRoutes from "./routes/police.routes.js";
+import offerRoutes from "./routes/offer.routes.js";
+import cimRoutes from "./routes/cim.routes.js";
 
 // Cron job
 import "./cron/cleanupTasks.js";
@@ -59,6 +61,9 @@ app.use("/api/payments", paymentsRoutes);
 app.use("/api/tools", toolsRoutes);
 app.use("/api/passport", passportRoutes);
 app.use("/api/police", policeRoutes);
+app.use("/api/offers", offerRoutes);
+app.use("/api/cim", cimRoutes);
+
 app.get("/", (req, res) => {
   res.send("Backend is running");
 });
