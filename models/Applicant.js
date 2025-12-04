@@ -31,7 +31,7 @@ const applicantSchema = new mongoose.Schema(
         "appointment confirmed",
         "mail received",
         "visa rejected",
-        "Visa stamped",
+        "Visa stampped",
         "Flight Done",
         "cancelled"
       ],
